@@ -1,61 +1,128 @@
+/* Card Styling */
 .card {
-    background: #1e1e1e;
-    color: #fff;
-    border-radius: 12px;
-    padding: 20px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  width: 300px;
+  height: 200px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: linear-gradient(120deg, #f39c12, #f1c40f);
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.cardImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.9;
+  transition: opacity 0.3s ease;
+}
+
+.card:hover .cardImage {
+  opacity: 0.7;
+}
+
+.cardContent {
+  position: absolute;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  padding: 10px;
+  width: 100%;
+  text-align: center;
+}
+
+.cardTitle {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+.cardDescription {
+  font-size: 1rem;
+  margin: 5px 0 0;
+}
+
+/* Modal Styling */
+.modalBackdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease;
+}
+
+.modal {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 90%;
+  max-height: 80%;
+  overflow-y: auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  position: relative;
+  animation: scaleIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+      opacity: 0;
   }
-  
-  .card:hover {
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  to {
+      opacity: 1;
   }
-  
-  .title {
-    font-size: 1.5rem;
-    margin-bottom: 10px;
-    color: #f39c12;
+}
+
+@keyframes scaleIn {
+  from {
+      transform: scale(0.8);
   }
-  
-  .description {
-    font-size: 1rem;
-    margin-bottom: 15px;
-    color: #ddd;
+  to {
+      transform: scale(1);
   }
-  
-  .techStack {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-bottom: 20px;
-  }
-  
-  .techBadge {
-    background: #333;
-    color: #f39c12;
-    border-radius: 5px;
-    padding: 5px 10px;
-    font-size: 0.875rem;
-  }
-  
-  .links {
-    display: flex;
-    justify-content: space-between;
-    gap: 15px;
-  }
-  
-  .link {
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    color: #f39c12;
-    font-weight: bold;
-    gap: 5px;
-    transition: color 0.3s ease;
-  }
-  
-  .link:hover {
-    color: #fff;
-  }
-  
-  
+}
+
+.modalImage {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.modalTitle {
+  font-size: 2rem;
+  margin: 10px 0;
+  color: #333;
+}
+
+.modalDetails {
+  font-size: 1.2rem;
+  color: #666;
+}
+
+.closeButton {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: #888;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.closeButton:hover {
+  color: #333;
+}

@@ -1,25 +1,42 @@
+import React from 'react';
+import styles from '../styles/Contact.module.css';
+import { FiMail, FiPhone } from 'react-icons/fi';
+
 const Contact: React.FC = () => {
     return (
-        <div>
-            <h1>Contact Me</h1>
-            <p>If you would like to get in touch or have any questions, feel free to reach out to me via email or through the contact form below.</p>
-            
-            <h2>Email</h2>
-            <p>You can email me at <a href="mailto:severipalikko@gmail.com">severipalikko@gmail.com</a></p>
-            
-            <h2>Or use the contact form</h2>
-            <form>
-                <label htmlFor="name">Name</label>
-                <input type="text" id="name" name="name" required />
-                
-                <label htmlFor="email">Email</label>
-                <input type="email" id="email" name="email" required />
-                
-                <label htmlFor="message">Message</label>
-                <textarea id="message" name="message" rows={4} required></textarea>
-                
-                <button type="submit">Send</button>
+        <div className={styles.contactContainer}>
+            <h1 className={styles.title}>Get in Touch</h1>
+            <p className={styles.subtitle}>
+                Have a question, collaboration idea, or just want to say hello? I'd love to hear from you!
+            </p>
+
+            {/* Contact Form */}
+            <form className={styles.contactForm}>
+                <label htmlFor="name" className={styles.label}>Name</label>
+                <input type="text" id="name" name="name" placeholder="Your Name" className={styles.input} />
+
+                <label htmlFor="email" className={styles.label}>Email</label>
+                <input type="email" id="email" name="email" placeholder="Your Email" className={styles.input} />
+
+                <label htmlFor="message" className={styles.label}>Message</label>
+                <textarea id="message" name="message" placeholder="Your Message" className={styles.textarea} />
+
+                <button type="submit" className={styles.submitButton}>Send Message</button>
             </form>
+
+            {/* Contact Info */}
+            <div className={styles.contactInfo}>
+                <p>
+                    <FiMail className={styles.icon} />{' '}
+                    <a href="mailto:severipalikko@gmail.com" className={styles.link}>
+                        severipalikko@gmail.com
+                    </a>
+                </p>
+                <p>
+                    <FiPhone className={styles.icon} />{' '}
+                    <span className={styles.phone}>+358 40 517 8242</span>
+                </p>
+            </div>
         </div>
     );
 };
